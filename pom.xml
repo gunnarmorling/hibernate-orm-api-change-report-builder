@@ -47,6 +47,7 @@
                     <parameter>
                         <!-- see documentation -->
                         <onlyModified>true</onlyModified>
+                        <onlyBinaryIncompatible>true</onlyBinaryIncompatible>
                         <ignoreMissingClasses>false</ignoreMissingClasses>
                         <excludes>
                             <exclude>org.hibernate.internal</exclude>
