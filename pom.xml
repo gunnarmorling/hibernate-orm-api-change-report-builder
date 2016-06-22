@@ -22,6 +22,11 @@
             <artifactId>hibernate-core</artifactId>
             <version>${new.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.siom79.japicmp</groupId>
+            <artifactId>japicmp</artifactId>
+            <version>0.8.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -49,6 +54,7 @@
                         <onlyModified>true</onlyModified>
                         <onlyBinaryIncompatible>true</onlyBinaryIncompatible>
                         <ignoreMissingClasses>false</ignoreMissingClasses>
+                        <postAnalysisScript>${project.basedir}/src/main/groovy/postAnalysisScript.groovy</postAnalysisScript>
                         <excludes>
                             <exclude>org.hibernate.internal</exclude>
                             <exclude>org.hibernate.*.internal</exclude>
