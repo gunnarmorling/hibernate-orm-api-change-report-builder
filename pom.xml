@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.hibernate.ci</groupId>
+    <artifactId>hibernate-orm-api-change-report-builder</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>hibernate-orm-api-change-report-builder</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <old.version>5.1.0.Final</old.version>
+        <new.version>5.2.0.Final</new.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${new.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.siom79.japicmp</groupId>
+                <artifactId>japicmp-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <configuration>
+                    <oldVersion>
+                        <dependency>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-core</artifactId>
+                            <version>${old.version}</version>
+                        </dependency>
+                    </oldVersion>
+                    <newVersion>
+                        <dependency>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-core</artifactId>
+                            <version>${new.version}</version>
+                        </dependency>
+                    </newVersion>
+                    <parameter>
+                        <!-- see documentation -->
+                        <onlyModified>true</onlyModified>
+                        <ignoreMissingClasses>false</ignoreMissingClasses>
+                        <excludes>
+                            <exclude>org.hibernate.internal</exclude>
+                            <exclude>org.hibernate.*.internal</exclude>
+                        </excludes>
+                    </parameter>
+
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.ant</groupId>
+                            <artifactId>ant</artifactId>
+                            <version>1.8.2</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>javax.validation</groupId>
+                            <artifactId>validation-api</artifactId>
+                            <version>1.1.0.Final</version>
+                        </dependency>
+                    </dependencies>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>cmp</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
