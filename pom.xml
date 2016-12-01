@@ -12,8 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <old.version>5.1.0.Final</old.version>
-        <new.version>5.2.1-SNAPSHOT</new.version>
+        <old.version>5.1.3.Final</old.version>
+        <new.version>5.2.5.Final</new.version>
     </properties>
 
     <dependencies>
