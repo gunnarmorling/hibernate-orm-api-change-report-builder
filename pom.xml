@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <old.version>5.1.3.Final</old.version>
         <new.version>5.2.5.Final</new.version>
+        <japicmp.version>0.9.3</japicmp.version>
     </properties>
 
     <dependencies>
@@ -25,7 +26,7 @@
         <dependency>
             <groupId>com.github.siom79.japicmp</groupId>
             <artifactId>japicmp</artifactId>
-            <version>0.8.0</version>
+            <version>${japicmp.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -33,7 +34,7 @@
             <plugin>
                 <groupId>com.github.siom79.japicmp</groupId>
                 <artifactId>japicmp-maven-plugin</artifactId>
-                <version>0.8.0</version>
+                <version>${japicmp.version}</version>
                 <configuration>
                     <oldVersion>
                         <dependency>
